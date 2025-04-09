@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Recommendation System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🌾 Crop Recommendation System</h1>
+    <form method="POST">
+      <input type="text" name="nitrogen" placeholder="Nitrogen (N)" required>
+      <input type="text" name="phosphorous" placeholder="Phosphorous (P)" required>
+      <input type="text" name="potassium" placeholder="Potassium (K)" required>
+      <input type="text" name="temperature" placeholder="Temperature (°C)" required>
+      <input type="text" name="humidity" placeholder="Humidity (%)" required>
+      <input type="text" name="ph" placeholder="pH" required>
+      <input type="text" name="rainfall" placeholder="Rainfall (mm)" required>
+      <button type="submit">Recommend Crop</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        <h2>Recommended Crop: <span>{{ prediction }}</span></h2>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
